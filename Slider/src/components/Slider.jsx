@@ -8,7 +8,7 @@ import sliderData from "../data/sliderData.js";
 const Slider = () => {
     const [sliderIndex,setSliderIndex] = useState(1);
 
-    function changeImg(nextprev) {
+    const changeImg = nextprev => {
 
         setSliderIndex(state =>{
             if (nextprev + state > sliderData.length){
