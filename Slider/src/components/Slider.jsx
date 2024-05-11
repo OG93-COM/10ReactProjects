@@ -9,16 +9,6 @@ const Slider = () => {
     const [sliderIndex,setSliderIndex] = useState(1);
 
     function changeImg(nextprev) {
-        // let newState ;
-        // if (nextprev + sliderIndex > sliderData.length) {
-        //     newState =1
-        // } else if (nextprev + sliderIndex < 1){
-        //     newState = 1
-        // } else {
-        //     newState = nextprev + sliderIndex;
-        // }
-        
-        // return setSliderIndex(newState);
 
         setSliderIndex(state =>{
             if (nextprev + state > sliderData.length){
