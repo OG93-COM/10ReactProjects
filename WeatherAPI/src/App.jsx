@@ -7,8 +7,11 @@ function App() {
 
       <main>
       <h1>Weather App</h1>
+      <div className="loader-container">
       <img src={loader} alt="loader" />
       <img src={browser} alt="browser" />
+      </div>
+      
       </main>
   
   );
