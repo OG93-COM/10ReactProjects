@@ -6,11 +6,12 @@ function App() {
   return (
 
       <main>
-      <h1>Weather App</h1>
-      <div className="loader-container">
-      <img src={loader} alt="loader" />
-      <img src={browser} alt="browser" />
-      </div>
+
+        <h1>Weather App</h1>
+        <div className="loader-container">
+        <img src={loader} alt="loader" />
+        <img src={browser} alt="browser" />
+        </div>
       
       </main>
   
@@ -18,3 +19,6 @@ function App() {
 }
 
 export default App;
+
+
+
