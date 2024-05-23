@@ -2,6 +2,7 @@
 // https://restcountries.com/v3.1/region/europe
 
 import { useEffect, useState } from "react"
+import ListCard from "./components/ListCard";
 
 function App() {
   const [countries, setCountries] = useState();
@@ -38,9 +39,7 @@ function App() {
 
           {countries.map((country,idx) => {
           return (
-            <li key={idx}>
-            <img src={country.flags.svg} className="rounded-lg"/>
-            </li>
+            <ListCard key={idx} country={country} />
             
           )
         })}
