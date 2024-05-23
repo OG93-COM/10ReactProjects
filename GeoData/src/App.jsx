@@ -1,14 +1,12 @@
-
-// https://restcountries.com/v3.1/region/europe
-
 import { useEffect, useState } from "react"
-import ListCard from "./components/ListCard";
+import { ListCard } from "./components/ListCard";
+
 
 function App() {
   const [countries, setCountries] = useState();
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/region/europe")
+    fetch("https://restcountries.com/v3.1/subregion/Northern Europe")
     .then(res => {
       return res.json();
     })
@@ -39,7 +37,7 @@ function App() {
 
           {countries.map((country,idx) => {
           return (
-            <ListCard key={idx} country={country} />
+           <ListCard key={idx} country={country} />
             
           )
         })}
