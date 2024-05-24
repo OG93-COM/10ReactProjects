@@ -15,7 +15,7 @@ export const ListCard = (props) => {
               <h2 className='absolute top-0 left-0 bg-slate-200 text-gray-950 py-2 px-4 rounded-bl-none rounded drop-shadow-lg'>{props.country.name.common}</h2>
               <img src={props.country.flags.svg} className='w-full h-full object-cover rounded-xl'/>
             </li>
-            { showModal && createPortal(<ModalContent country={props.country.capital} closeModal={()=> setShowModal(!showModal) }/>, document.body)}
+            { showModal && createPortal(<ModalContent country={props.country} closeModal={()=> setShowModal(!showModal) }/>, document.body)}
         </>
           
         )
