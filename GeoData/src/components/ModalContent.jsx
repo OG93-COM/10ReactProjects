@@ -9,7 +9,7 @@ const ModalContent = (props) => {
         </button>
 
             <p className='text-gray-500 text-xl  '>Here is {props.country.name.common} informations</p>
-            <p className='text-gray-800 text-sm mt-2'>Language : {props.country.languages.lav} </p>
+            <p className='text-gray-800 text-sm mt-2'>Language : {props.country.languages[0]} </p>
             <p className='text-gray-800 text-sm mt-2'>Capitale : {props.country.capital} </p>
             <p className='text-gray-800 text-sm mt-2 '>Population : {props.country.population} </p>
             
