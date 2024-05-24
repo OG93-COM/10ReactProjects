@@ -16,7 +16,7 @@ const ModalContent = (props) => {
                 <span className='font-semibold'>Language: </span> {Object.entries(props.country.languages).map(lan => lan[1].toUpperCase() + " ")} 
             </h2>
             <p className='text-gray-800 text-sm mt-2'>
-                <span className='font-semibold'>Capitale: </span> {props.country.capital} 
+                <span className='font-semibold'>Capitale: </span> {props.country.capital[0]} 
             </p>
             <p className='text-gray-800 text-sm mt-2 '>
                 <span className='font-semibold'>Population: </span> {props.country.population} <span className='text-xs text-gray-500'>p</span>  
