@@ -1,7 +1,7 @@
 function App() {
   return (
     <div className="text-center bg-gray-400 w-full min-h-full">
-      Smart IDE
+      <h1>Smart IDE</h1>
     </div>
   )
 }
