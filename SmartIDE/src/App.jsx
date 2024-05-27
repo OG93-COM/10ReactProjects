@@ -1,3 +1,5 @@
+import hide from './assets/hide.svg'
+
 function App() {
   return (
     <div className=" bg-zinc-900 min-h-screen flex flex-col">
@@ -6,7 +8,9 @@ function App() {
           <span className="text-base">Smart </span>IDE
         </h1>
         <div className="w-full">
-          <button className="bg-blue-600 py-2 px-3 rounded">Show Preview</button>
+          <button className="bg-blue-600 py-2 px-3 rounded flex items-center hover:bg-blue-700">
+            <img src={hide} className='w-[20px] mr-3 ' />
+            Show Preview</button>
         </div>
         <div className="w-full flex">
           <div className="ml-auto mr-2">
