@@ -13,7 +13,7 @@ function App() {
             Show Preview</button>
         </div>
         <div className="w-full flex">
-          <div className="ml-auto mr-2">
+          <div className="ml-auto mr-2 cursor-pointer" onClick={()=> alert('Menu in developement')}>
             <div className="w-[6px] h-[6px] bg-slate-100 rounded-full my-1"></div>
             <div className="w-[6px] h-[6px] bg-slate-100 rounded-full my-1"></div>
             <div className="w-[6px] h-[6px] bg-slate-100 rounded-full"></div>
