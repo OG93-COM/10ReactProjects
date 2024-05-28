@@ -5,7 +5,7 @@ function App() {
     <div className=" bg-zinc-900 min-h-screen flex flex-col">
       <div className="text-gray-100 px-4 py-4 border-b flex items-center">
         <h1 className="w-full text-2xl">
-          <span className="text-base">Smart </span>IDE
+          <span className="text-base">OG93 - </span>IDE
         </h1>
         <div className="w-full">
           <button className="bg-blue-600 py-2 px-3 rounded flex items-center hover:bg-blue-700">
