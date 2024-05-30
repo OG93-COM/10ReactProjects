@@ -1,7 +1,9 @@
 import hide from './assets/hide.svg'
+import Tabs from './components/Tabs'
 
 function App() {
   return (
+
     <div className=" bg-zinc-900 min-h-screen flex flex-col">
       <div className="text-gray-100 px-4 py-4 border-b flex items-center">
         <h1 className="w-full text-2xl">
@@ -19,10 +21,11 @@ function App() {
             <div className="w-[6px] h-[6px] bg-slate-100 rounded-full"></div>
           </div>
         </div>
-
       </div>
-      
+
+      <Tabs/>
     </div>
+
   )
 }
 
