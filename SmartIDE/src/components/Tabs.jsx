@@ -1,7 +1,5 @@
 import React from 'react'
-import htmlIcon from '../assets/html.svg'
-import cssIcon from '../assets/css.svg'
-import jsIcon from '../assets/js.svg'
+import {htmlIcon, cssIcon, jsIcon} from '../assets/index.js'
 import CodeTab from './CodeTab'
 
 const Tabs = () => {
