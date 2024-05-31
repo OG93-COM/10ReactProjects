@@ -7,11 +7,11 @@ const initialState = [
         lang:"html",
         imageUrl: htmlIcon,
         buttonContent: "HTML",
-        code:`<div>
-        <h1>React Code Editor</h1>
-        <p>Coding Live</p>
-        </div>
-        `
+        code:`
+        <div>
+            <h1>React Code Editor</h1>
+            <p>Coding Live</p>
+        </div>`
     },
     {
         id:2,
