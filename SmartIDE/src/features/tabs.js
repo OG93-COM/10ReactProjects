@@ -40,8 +40,8 @@ export const codeUpdater = createSlice({
     name:'code-updater',
     initialState,
     reducers:{
-        updateCode:(state,action) =>{
-            state.find(obj => obj.id === action.payload.id).code = action.payload.value
+        updateCode:(state, action) => {
+            state.find(obj => obj.id === action.payload.id).code = action.payload.value;
         }
     }
 })

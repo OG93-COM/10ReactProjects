@@ -3,6 +3,7 @@ import {htmlIcon, cssIcon, jsIcon} from '../assets/index.js'
 import CodeTab from './CodeTab'
 import { useSelector } from 'react-redux'
 import BunttonTab from './BunttonTab.jsx'
+import Preview from './Preview.jsx'
 
 const Tabs = () => {
     const tabsState = useSelector(state => state.tabs);
@@ -15,8 +16,9 @@ const Tabs = () => {
                 <BunttonTab key={tab.id} id={tab.id} toggleTab={id => setTabIndex(id)} buttonContent={tab.buttonContent} imageUrl={tab.imageUrl} />
             ))}
         </div>
-        <div className='flex grow  w-full relative p-2'>
+        <div className='flex w-full grow relative p-2'>
             <CodeTab codeId={tabIndex} code={tabsState.find(obj => obj.id === tabIndex).code}/>
+            <Preview/>
         </div>
         
     </div>
