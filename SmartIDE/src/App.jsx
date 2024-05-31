@@ -1,4 +1,5 @@
-import hide from './assets/hide.svg'
+
+import PreviewButton from './components/PreviewButton'
 import Tabs from './components/Tabs'
 
 function App() {
@@ -10,9 +11,7 @@ function App() {
           <span className="text-base">OG93 - </span>IDE
         </h1>
         <div className="w-full">
-          <button className="bg-blue-600 py-2 px-3 rounded flex items-center hover:bg-blue-700">
-            <img src={hide} className='w-[20px] mr-3 ' />
-            Show Preview</button>
+          <PreviewButton/>
         </div>
         <div className="w-full flex">
           <div className="ml-auto mr-2 cursor-pointer" onClick={()=> alert('Menu in developement')}>

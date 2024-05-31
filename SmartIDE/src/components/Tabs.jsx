@@ -7,7 +7,10 @@ import Preview from './Preview.jsx'
 
 const Tabs = () => {
     const tabsState = useSelector(state => state.tabs);
+    const tabsPreview = useSelector(state => state.preview[0]);
+
     const [tabIndex, setTabIndex] = useState(tabsState[0].id);
+    
 
   return (
     <div className='flex grow'>
@@ -17,8 +20,9 @@ const Tabs = () => {
             ))}
         </div>
         <div className='flex w-full grow relative p-2'>
-            <CodeTab codeId={tabIndex} code={tabsState.find(obj => obj.id === tabIndex).code}/>
-            <Preview/>
+            {tabsPreview.preview ? <CodeTab codeId={tabIndex} code={tabsState.find(obj => obj.id === tabIndex).code}/> : <Preview/> }
+            
+            
         </div>
         
     </div>
