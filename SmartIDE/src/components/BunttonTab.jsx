@@ -16,12 +16,7 @@ const BunttonTab = ({id, toggleTab, buttonContent, imageUrl}) => {
         <span>{buttonContent}</span>
     </button>
 
-
   )
 }
 
 export default BunttonTab
-
-{/* <button className='flex items-center hover:bg-slate-500 p-2'> <img src={tabsState[0].imageUrl} className='w-[16px] mr-2'/> {tabsState[0].buttonContent} </button>
-<button className='flex items-center hover:bg-slate-500 p-2'><img src={tabsState[1].imageUrl} className='w-[16px] mr-2'/>{tabsState[1].buttonContent}</button>
-<button className='flex items-center hover:bg-slate-500 p-2'><img src={tabsState[2].imageUrl} className='w-[16px] mr-2'/>{tabsState[2].buttonContent}</button> */}
