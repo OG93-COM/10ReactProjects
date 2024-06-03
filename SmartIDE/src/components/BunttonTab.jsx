@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { hidePreview } from '../features/preview';
 
+
 const BunttonTab = ({id, toggleTab, buttonContent, imageUrl}) => {
 
     const dispatch = useDispatch();
