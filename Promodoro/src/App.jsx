@@ -1,6 +1,10 @@
+import ToggleButton from "./components/ToggleButton"
 import { UpdateTimeButton } from "./components/UpdateTimeButton"
+import { useSelector } from 'react-redux'
 
 function App() {
+
+  const chronoValues = useSelector(state => state.chrono)
 
   return (
     <div className="bg-slate-700 text-slate-100 pt-20 min-h-screen">
@@ -12,7 +16,7 @@ function App() {
             <p className="text-center mb-1">Session</p>
             <div className="flex items-center">
               <UpdateTimeButton signe="-" type="session"/>
-              <p>25</p>
+              <p>{chronoValues.session.value /60}</p>
               <UpdateTimeButton signe="+"/>
             </div>
           </div>
@@ -21,7 +25,7 @@ function App() {
             <p className="text-center mb-1">Pauses</p>
             <div className="flex items-center">
               <UpdateTimeButton signe="-" type="pauses"/>
-              <p>5</p>
+              <p>{chronoValues.pauses.value / 60}</p>
               <UpdateTimeButton signe="+"/>
             </div>
           </div>
@@ -37,7 +41,7 @@ function App() {
         <div className="text-center flex justify-center mb-1 ">
         <p className="text-center text-xs m-2 text-slate-300">Passed Cycle(s) : 0</p>
         </div>
-        
+        <ToggleButton/>
 
       </div>
     </div>
