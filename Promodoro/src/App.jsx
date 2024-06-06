@@ -10,8 +10,8 @@ function App() {
           
           <div className="mr-10">
             <p className="text-center mb-1">Session</p>
-            <div className="flex">
-              <UpdateTimeButton signe="-"/>
+            <div className="flex items-center">
+              <UpdateTimeButton signe="-" type="session"/>
               <p>25</p>
               <UpdateTimeButton signe="+"/>
             </div>
@@ -19,8 +19,8 @@ function App() {
 
           <div className="mr-10">
             <p className="text-center mb-1">Pauses</p>
-            <div className="flex">
-              <UpdateTimeButton signe="-"/>
+            <div className="flex items-center">
+              <UpdateTimeButton signe="-" type="pauses"/>
               <p>5</p>
               <UpdateTimeButton signe="+"/>
             </div>
