@@ -13,7 +13,7 @@ const initialState = {
         intervalId: undefined,
         cycle: 0,
         displayedValue:{
-            value:1500,
+            value:1350,
             heading:"Work"
         }
     }
