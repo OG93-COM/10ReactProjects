@@ -13,7 +13,7 @@ const initialState = {
         intervalId: undefined,
         cycle: 0,
         displayedValue:{
-            value:1350,
+            value:1500,
             heading:"Work"
         }
     }
@@ -21,10 +21,28 @@ const initialState = {
 export const chrono = createSlice({
     name:'chrono',
     initialState,
-    reducers:{
-        
+    reducers:{ 
+
+        updateChronoValues: (state, action) => {
+            const choosenState = state[action.payload.type]
+            // Block State
+            if(choosenState.value + action.payload.value === 0) return;
+
+            if(action.payload.type === "session") {
+                if(!state.isPlaying) {
+                    choosenState.value = choosenState.value + action.payload.value;
+                    choosenState.runningValue = choosenState.runningValue + action.payload.value;
+                    state.displayedValue.value = choosenState.runningValue;
+                } else {
+                    choosenState.value = choosenState.value + action.payload.value;
+                }
+            } else if(action.payload.type === "pauses") {
+                choosenState.value = choosenState.value + action.payload.value;
+            }
         }
+        
+    }
 })
 
-export const {updateChrono} = chrono.actions;
+export const {updateChronoValues} = chrono.actions;
 export default chrono.reducer;

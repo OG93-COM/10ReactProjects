@@ -18,7 +18,7 @@ function App() {
             <div className="flex items-center">
               <UpdateTimeButton signe="-" type="session"/>
               <p>{chronoValues.session.value /60}</p>
-              <UpdateTimeButton signe="+"/>
+              <UpdateTimeButton signe="+" type="session"/>
             </div>
           </div>
 
@@ -27,7 +27,7 @@ function App() {
             <div className="flex items-center">
               <UpdateTimeButton signe="-" type="pauses"/>
               <p>{chronoValues.pauses.value / 60}</p>
-              <UpdateTimeButton signe="+"/>
+              <UpdateTimeButton signe="+" type="pauses"/>
             </div>
           </div>
 
