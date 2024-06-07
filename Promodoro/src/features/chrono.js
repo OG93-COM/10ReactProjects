@@ -41,8 +41,12 @@ export const chrono = createSlice({
             }
         },
         tick: (state, action) => {
-            console.log("tick")
-            state.displayedValue.value -= 1;
+            if(state.session.runningValue > 0){
+                state.session.runningValue --;
+                state.displayedValue.value = state.session.runningValue;
+                state.displayedValue.heading = "Work"
+            }
+            
         },
         setUpChrono: (state, action) => {
             state.isPlaying = true;
