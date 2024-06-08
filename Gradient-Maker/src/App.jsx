@@ -20,13 +20,13 @@ const App = () => {
           <p className='text-sm mb-2'>Pick and change color's position: </p>
           {/* Select Color */}
 
-          <p className='text-sm text-slate-300 mt-2'>Colors Position</p>
+          <p className='text-xs text-slate-300 mt-2'>Colors Position</p>
           {/* Range Position */}
-          <input type='range'></input>
-
-          <p className='text-sm text-slate-300 mt-2'>Gardient global angle</p>
+          <input type='range' className='w-full'></input>
+          <hr className='opacity-50 my-3' />
+          <p className='text-xs text-slate-300 mt-2'>Gardient global angle</p>
           {/* Range Position */}
-          <input type='range'></input>
+          <input type='range' className='w-full'></input>
 
           <button className='mt-3 text-xs bg-blue-600 text-slate-200 py-2 px-4 rounded'>Get The Code</button>
           
