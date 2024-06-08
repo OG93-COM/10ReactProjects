@@ -1,11 +1,16 @@
 import React from 'react'
+import getGradientCSSValue from "../utils/getGradientCSSValue.js"
+import { useSelector } from 'react-redux'
+
 
 
 export const Gradient = () => {
-
+    const gradientValues = useSelector(state => state.gradient)
     
   return (
-    <div className='w-1/2 border border-slate-200 bg-gradient-to-r from-[#480048] to-[#C04848]'>
+    <div 
+    style={{backgroundImage: getGradientCSSValue(gradientValues).slice(0,-1)}}
+    className='w-1/2 border border-slate-200'>
         
     </div>
   )

@@ -11,18 +11,18 @@ const App = () => {
   console.log(gradientValues);
 
   return (
-    <div className="relative text-slate-100 max-w-xl mx-auto mt-10 p-4 border border-slate-400 flex">
+    <div className="relative text-slate-100 max-w-4xl mx-auto mt-10 p-4 border border-slate-400 flex">
       <div className='w-1/2 p-4 pr-8'>
         <h1  className='text-center text-2xl'>Gradient Generator</h1>
         <p className='text-center text-sm text-slate-400 mb-6'>Bring Style to your apps</p>
         <p className='mb-2'>Colors, min 2, max 5</p>
         <div className='flex mb-2'>
           {gradientValues.colors.map( color => { 
-           return (<ColorInput color={color.value} id={color.id}/> )
+           return (<ColorInput key={color.id} color={color.value} id={color.id}/> )
           })}
         </div>
         <div className='mb-5 flex'>
-        <AddRemoveColor signe={"-"} action={"remove"}/>
+          <AddRemoveColor signe={"-"} action={"remove"}/>
           <AddRemoveColor signe={"+"} action={"add"}/>
         </div>
         <div>

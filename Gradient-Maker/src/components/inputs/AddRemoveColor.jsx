@@ -8,6 +8,7 @@ const AddRemoveColor = ({signe, action}) => {
     function handleClick(){
         if (action ==="add") {
             dispatch(addColor())
+            
         } else if (action ==="remove") {
             dispatch(removeColor())
         }

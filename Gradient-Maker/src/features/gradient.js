@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
 const initialState = {
         colors:[
             {
@@ -36,7 +37,7 @@ export const gradientSlice = createSlice({
             if (state.colors.length == 5) return ;
             state.colors.push({
                 id: state.colors[state.colors.length - 1].id + 1,
-                value: "#111",
+                value: "#ffffff",
                 position: 50
             })
         },
