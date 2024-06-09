@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Gradient } from './components/Gradient'
 import {useSelector} from "react-redux"
 import ColorInput from './components/inputs/ColorInput';
@@ -6,10 +6,12 @@ import AddRemoveColor from './components/inputs/AddRemoveColor';
 import RangeAngle from './components/inputs/RangeAngle';
 import SelectColor from './components/inputs/SelectColor';
 import RangePosition from './components/inputs/RangePosition';
+import ModalGetCode from './components/ModalGetCode';
 
 const App = () => {
   
   const gradientValues = useSelector(state => state.gradient);
+  const [showModal, setShowModal] = useState(false);
 
 
   return (
@@ -41,7 +43,10 @@ const App = () => {
           <RangeAngle valueRange={gradientValues.angle}/>
           {/* <input type='range' className='w-full' value={gradientValues.angle} min={1} max={100}></input> */}
 
-          <button className='mt-3 text-xs bg-blue-600 text-slate-200 py-2 px-4 rounded'>Get The Code</button>
+          <button
+          onClick={() => setShowModal(!showModal)}
+          className='mt-3 text-xs bg-blue-600 text-slate-200 py-2 px-4 rounded'>Get The Code</button>
+          {showModal && <ModalGetCode closeModal={() => setShowModal(!showModal)} /> } 
           
         </div>
       </div>
