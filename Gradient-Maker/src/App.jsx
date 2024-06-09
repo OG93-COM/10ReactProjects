@@ -2,14 +2,15 @@ import React from 'react'
 import { Gradient } from './components/Gradient'
 import {useSelector} from "react-redux"
 import ColorInput from './components/inputs/ColorInput';
-import RangeInput from './components/inputs/RangeInput';
 import AddRemoveColor from './components/inputs/AddRemoveColor';
 import RangeAngle from './components/inputs/RangeAngle';
+import SelectColor from './components/inputs/SelectColor';
+import RangePosition from './components/inputs/RangePosition';
 
 const App = () => {
   
   const gradientValues = useSelector(state => state.gradient);
-  console.log(gradientValues);
+
 
   return (
     <div className="relative text-slate-100 max-w-4xl mx-auto mt-10 p-4 border border-slate-400 flex">
@@ -28,11 +29,11 @@ const App = () => {
         </div>
         <div>
           <p className='text-sm mb-2'>Pick and change color's position: </p>
-          {/* Select Color */}
+          <SelectColor/>
 
           <p className='text-xs text-slate-300 mt-2'>Colors Position</p>
           {/* Range Position */}
-          <RangeInput/>
+          <RangePosition/>
           {/* <input type='range' className='w-full' value={gradientValues.colors[2].position} min={1} max={100}></input> */}
           <hr className='opacity-50 my-3' />
           <p className='text-xs text-slate-300 mt-2'>Gardient global angle : {gradientValues.angle}°</p>

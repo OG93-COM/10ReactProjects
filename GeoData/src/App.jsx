@@ -6,7 +6,7 @@ function App() {
   const [countries, setCountries] = useState();
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/subregion/Africa")
+    fetch("https://restcountries.com/v3.1/subregion/europe")
     .then(res => {
       return res.json();
     })

@@ -40,12 +40,20 @@ export const gradientSlice = createSlice({
         },
         updateAngle :(state, action) => {
             state.angle = action.payload
-        }  
+        },
+        pickColor:(state, action) => {
+            state.pickedColorId = action.payload
+            
+        },
+        updatePosition:(state, action) => {
+            state.colors[state.pickedColorId - 1].position = action.payload
+            
+        }
  
     }
 })
 
 
 
-export const { updateColorValue , addColor, removeColor , updateAngle} = gradientSlice.actions;
+export const { updateColorValue , addColor, removeColor , updateAngle, pickColor, updatePosition} = gradientSlice.actions;
 export default gradientSlice.reducer;

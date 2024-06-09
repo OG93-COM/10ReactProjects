@@ -2,10 +2,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {updateAngle } from '../../features/gradient'
 
-const RangeAngle = ({valueRange}) => {
+const RangeAngle = () => {
     const dispatch = useDispatch()
     const gradientAngle = useSelector(state => state.gradient.angle)
-    console.log(gradientAngle)
     return (
       <input 
       type='range' 
