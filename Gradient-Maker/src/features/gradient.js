@@ -12,14 +12,7 @@ const initialState = {
                 id:2,
                 value:"#480048",
                 position:50
-            },
-            {
-                id:3,
-                value:"#980048",
-                position:70
-            },
-            
-            
+            } 
         ],
         pickedColorId: 1,
         angle: 60
@@ -38,7 +31,7 @@ export const gradientSlice = createSlice({
             state.colors.push({
                 id: state.colors[state.colors.length - 1].id + 1,
                 value: "#ffffff",
-                position: 50
+                position: 80
             })
         },
         removeColor:(state,action) => {
