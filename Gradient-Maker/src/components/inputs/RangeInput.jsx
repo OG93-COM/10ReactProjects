@@ -1,8 +1,13 @@
 import React from 'react'
 
-const RangeInput = () => {
+const RangeInput = ({valueRange}) => {
   return (
-    <input type='range' className='w-full' ></input>
+    <input 
+    type='range' 
+    className='w-full h-1' 
+    value={valueRange} 
+    min={0} 
+    max={100}></input>
   )
 }
 
