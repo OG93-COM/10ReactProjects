@@ -5,7 +5,7 @@ import {updatePosition} from '../../features/gradient'
 const RangePosition = () => {
   const dispatch = useDispatch()
   const gradientValues = useSelector(state => state.gradient.colors[state.gradient.pickedColorId - 1].position)
-  console.log("first, " , gradientValues)
+
   return (
     <input 
     type='range'

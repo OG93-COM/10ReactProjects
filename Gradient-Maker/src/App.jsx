@@ -31,7 +31,7 @@ const App = () => {
           <p className='text-sm mb-2'>Pick and change color's position: </p>
           <SelectColor/>
 
-          <p className='text-xs text-slate-300 mt-2'>Colors Position</p>
+          <p className='text-xs text-slate-300 mt-2'>Colors Position {gradientValues.pickedColorId} : {gradientValues.colors[gradientValues.pickedColorId - 1].position}</p>
           {/* Range Position */}
           <RangePosition/>
           {/* <input type='range' className='w-full' value={gradientValues.colors[2].position} min={1} max={100}></input> */}
