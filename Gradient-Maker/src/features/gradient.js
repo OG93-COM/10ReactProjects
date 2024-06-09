@@ -41,9 +41,7 @@ export const gradientSlice = createSlice({
         updateAngle :(state, action) => {
             state.angle = action.payload
         }  
-
-        
-        
+ 
     }
 })
 

@@ -35,7 +35,7 @@ const App = () => {
           <RangeInput/>
           {/* <input type='range' className='w-full' value={gradientValues.colors[2].position} min={1} max={100}></input> */}
           <hr className='opacity-50 my-3' />
-          <p className='text-xs text-slate-300 mt-2'>Gardient global angle : {gradientValues.angle}%</p>
+          <p className='text-xs text-slate-300 mt-2'>Gardient global angle : {gradientValues.angle}°</p>
           {/* Range Position */}
           <RangeAngle valueRange={gradientValues.angle}/>
           {/* <input type='range' className='w-full' value={gradientValues.angle} min={1} max={100}></input> */}
