@@ -10,6 +10,7 @@ const ModalGetCode = ({closeModal}) => {
         <div 
         onClick={e => e.stopPropagation()} 
         className='bg-slate-50 min-w-[500px] relative p-7 rounded'>
+            
             <div className='flex '>
                 <h1 className='text-gray-500 text-xl'>The code is here 👇</h1>
                 <div className='flex'>
