@@ -1,21 +1,44 @@
 import React from 'react'
 import getGradientCSSValue from '../utils/getGradientCSSValue'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 const ModalGetCode = ({closeModal}) => {
 
     const gradientValues = useSelector(state => state.gradient)
+
+    // Animation button Copied
+    let runningAnimationCopie = false;
+    function handleCopy(e){
+        if(!runningAnimationCopie){
+            runningAnimationCopie = true
+            e.target.textContent = "Copied ✔️"
+            navigator.clipboard.writeText(`background-image: ${getGradientCSSValue(gradientValues)} `)
+            setTimeout(()=> {
+                runningAnimationCopie = false
+                e.target.textContent = "Copy"
+            },1000)
+        } 
+    }
+
+    // Disable background Scroll
+    useEffect(()=> {
+        document.body.style.overflowY = "hidden";
+        return () => document.body.style.overflowY = "visible";
+    },[])
+
+    
   return (
     <div onClick={closeModal} className='fixed z-10 top-0 left-0 bg-slate-800/90 w-full h-full flex justify-center items-center'>
         <div 
         onClick={e => e.stopPropagation()} 
         className='bg-slate-50 min-w-[500px] relative p-7 rounded'>
-            
+
             <div className='flex '>
                 <h1 className='text-gray-500 text-xl'>The code is here 👇</h1>
                 <div className='flex'>
                     <button 
-                    onClick={closeModal}
+                    onClick={handleCopy}
                     className=' bg-blue-500 text-slate-50 text-xs rounded absolute right-[90px] px-3 py-1  hover:bg-blue-600'>
                     Copy
                     </button>
