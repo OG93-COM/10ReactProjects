@@ -14,6 +14,13 @@ export const playList = createSlice({
         addBaseSongs: (state,action) => {
             state.songs = action.payload;
             state.currentMusicId = action.payload[0].id;
+        },
+        toggleLecture:(state,action) => {
+            state.play = !state.play
+            console.log(state.play)
+        },
+        nextMusic:(state,action) => {
+            
         }
     }
 })
@@ -27,5 +34,5 @@ export function getMusicData(action){
 }
 
 
-export const { addBaseSongs} = playList.actions;
+export const { addBaseSongs , toggleLecture} = playList.actions;
 export default playList.reducer;
