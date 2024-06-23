@@ -20,7 +20,18 @@ export const playList = createSlice({
             console.log(state.play)
         },
         nextMusic:(state,action) => {
-            
+            if (action.payload === state.songs.length) {
+                state.currentMusicId = state.songs[0].id
+            } else {
+                state.currentMusicId = state.songs[action.payload].id
+            }
+        },
+        prevMusic:(state,action) => {
+            if (action.payload < 0) {
+                state.currentMusicId = state.songs[state.songs.length - 1].id
+            } else {
+                state.currentMusicId = state.songs[action.payload].id
+            }
         }
     }
 })
@@ -34,5 +45,5 @@ export function getMusicData(action){
 }
 
 
-export const { addBaseSongs , toggleLecture} = playList.actions;
+export const { addBaseSongs , toggleLecture, nextMusic, prevMusic} = playList.actions;
 export default playList.reducer;

@@ -8,17 +8,17 @@ const Progress = () => {
   const handleProgressClick = (e) => {
     const player = document.getElementById('audio-player')
     const rect = e.target.getBoundingClientRect()
-    const widht = rect.widht
+    const widht = rect.width
     const x = e.clientX - rect.left
     player.currentTime = (x / widht) * progressData.totalDuration
   }
-  
+
   return (
     <div className='max-w-[800px] mx-auto'>
       <div
       onClick={handleProgressClick}
       className='bg-slate-900 h-2 rounded cursor-pointer'>
-        <div 
+        <div
         style={{transform:`scaleX(${progressData.current / progressData.totalDuration})`}}
         className='bg-indigo-400 origin-left h-full pointer-events-none'></div>
       </div>
