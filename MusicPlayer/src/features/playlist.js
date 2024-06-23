@@ -32,6 +32,9 @@ export const playList = createSlice({
             } else {
                 state.currentMusicId = state.songs[action.payload].id
             }
+        },
+        changeMusic:(state,action) => {
+            state.currentMusicId = action.payload
         }
     }
 })
@@ -45,5 +48,5 @@ export function getMusicData(action){
 }
 
 
-export const { addBaseSongs , toggleLecture, nextMusic, prevMusic} = playList.actions;
+export const { addBaseSongs , toggleLecture, nextMusic, prevMusic, changeMusic} = playList.actions;
 export default playList.reducer;
