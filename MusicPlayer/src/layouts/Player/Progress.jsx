@@ -12,6 +12,7 @@ const Progress = () => {
     const x = e.clientX - rect.left
     player.currentTime = (x / widht) * progressData.totalDuration
   }
+  
   return (
     <div className='max-w-[800px] mx-auto'>
       <div
