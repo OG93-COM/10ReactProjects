@@ -16,7 +16,7 @@ export default function usePhotos(query,pageNumber) {
         .then(res => res.json())
         .then(data => {
             console.log(data.results)
-            setPhoto(data.results)
+            setPhoto(state => [...state,...data.results])
             setMaxPages(data.total_pages)
             setLoading(false)
             console.log("✅✅✅✅✅ API")
@@ -27,7 +27,7 @@ export default function usePhotos(query,pageNumber) {
             console.log("❌❌❌❌❌❌ API")
             })
 
-    },[])
+    },[query,pageNumber])
   return {error , photo, maxPages, loading}
 
 }
