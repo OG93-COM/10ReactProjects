@@ -7,7 +7,7 @@ const List = () => {
   const [query, setQuery] = useState('random');
   const [pageNumber, setPageNumber] = useState(1);
   const photoApiData = usePhotos(query,pageNumber);
-  console.log(photoApiData)
+
 
 
   return (
