@@ -12,6 +12,14 @@ export default function usePhotos(query,pageNumber) {
     const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
+        if(photo.length !== 0 && maxPages !== 0){
+            setPhoto([])
+            setMaxPages(0)
+            setLoading(true)
+        }
+    },[query])
+
+    useEffect(()=>{
         fetch(`https://api.unsplash.com/search/photos?page=${pageNumber}&per_page=30&query=${query}&client_id=${import.meta.env.VITE_UNSPLASH_KEY}`)
         .then(res => res.json())
         .then(data => {
