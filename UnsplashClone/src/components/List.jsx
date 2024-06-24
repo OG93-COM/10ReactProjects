@@ -9,6 +9,7 @@ const List = () => {
   const photoApiData = usePhotos(query,pageNumber);
   console.log(photoApiData)
 
+
   return (
     <>
 
@@ -20,13 +21,17 @@ const List = () => {
       placeholder='Look for images...'
       className='block w-full text-slate-800 py-3 px-2 text-md outline-slate-600 rounded border border-slate-400'/>
     </form>
-
-    <div className='flex flex-wrap gap-3 mt-4'>
-      {photoApiData.loading && <img src={spinner}/> }
-      {photoApiData.photo.map(imgUrl =>
-      <img src={imgUrl.urls.thumb}></img>
+    <ul className='grid grid-cols-[repeat(auto-fill,minmax(200px,_1fr))] auto-rows[175px] mt-4 gap-4 justify-center'>
+      {!photoApiData.loading && photoApiData.photo.length !== 0 &&
+      photoApiData.photo.map((image,idxImg) => (
+      <li key={image.id}>
+        <img className='w-full h-full object-cover'  src={image.urls.regular} alt={image.alt_description}></img>
+      </li>)
       )}
-    </div>
+    </ul>
+    {(photoApiData.loading && !photoApiData.error.state) &&
+    <img src={spinner} className='block mx-auto' alt='Spinner'/> }
+
 
     </>
   )
