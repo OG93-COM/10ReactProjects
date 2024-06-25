@@ -21,17 +21,29 @@ export default function usePhotos(query,pageNumber) {
 
     useEffect(()=>{
         fetch(`https://api.unsplash.com/search/photos?page=${pageNumber}&per_page=30&query=${query}&client_id=${import.meta.env.VITE_UNSPLASH_KEY}`)
-        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            if (!res.ok) {
+                throw new Error("Network response was not ok : " + res.status);
+              }
+              return res.json();
+            })
         .then(data => {
-            console.log(data.results)
-            setPhoto(state => [...state,...data.results])
-            setMaxPages(data.total_pages)
-            setLoading(false)
-            console.log("✅✅✅✅✅ API")
+            setPhoto(state => [...state,...data.results]);
+            setMaxPages(data.total_pages);
+            setLoading(false);
+            setError({
+                msg:'',
+                state: false
+                });
+            
         })
         .catch (err => {
-            setError({ msg: err.message, state: true })
-            setLoading(true)
+            setError({
+                msg: err.message,
+                state: true
+                })
+            setLoading(false)
             console.log("❌❌❌❌❌❌ API")
             })
 
