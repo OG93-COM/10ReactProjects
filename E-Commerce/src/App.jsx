@@ -1,9 +1,13 @@
+import ProductsList from "./components/ProductsList.jsx";
+
+
 function App() {
   return (
     <>
-    Commerce
+    <ProductsList/>
+
     </>
-  );
+  )
 }
 
 export default App;
