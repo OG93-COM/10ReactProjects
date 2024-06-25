@@ -4,7 +4,7 @@
       "title": "Mug Coding Fuel",
       "price": 14.99,
       "img": "codingfuel",
-      "picked": false,
+      "picked": true,
       "id": 1
     },
     {
