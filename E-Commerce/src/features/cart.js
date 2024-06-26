@@ -10,6 +10,13 @@ export const cartSlice = createSlice({
     reducers: {
         createCartItems: (state, action) => {
             state.cartItems.push(action.payload);
+        },
+        updateItemFromSelect: (state, action) => {
+            state.cartItems.find(el => el.id === action.payload.id).quantity = Number(action.payload.value)
+        },
+        removeItemFromCart:(state,action) => {
+            const indexOfRemovedItem = state.cartItems.findIndex(el => el.id === action.payload.id)
+            state.cartItems.splice(indexOfRemovedItem,1)
         }
     }
 })
@@ -35,5 +42,5 @@ export function addOneToCart(productId) {
     }
 }
 
-export const { createCartItems } = cartSlice.actions;
+export const { createCartItems , updateItemFromSelect, removeItemFromCart } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -18,7 +18,7 @@ const Cart = () => {
         <img src={shoppingCart} alt='shopping cart' className='w-5'/>
         <p>View your cart {cart.cartItems.length !==0 && ` : ${cart.cartItems.length}`}</p>
     </div>
-    { showModal && createPortal(<ModalContent cartData={cart} closeModal={()=> setShowModal(!showModal) }/>, document.body)}
+    { showModal && createPortal(<ModalContent closeModal={()=> setShowModal(!showModal) }/>, document.body)}
     </>
   )
 }

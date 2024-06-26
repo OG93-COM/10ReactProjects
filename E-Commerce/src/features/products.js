@@ -18,6 +18,9 @@ export const productSlice = createSlice({
             if (product) {
                 product.picked = true;
             }
+        },
+        ["cart/removeItemFromCart"]: (state,action) => {
+            state.items.find(el => el.id === action.payload).picked = false
         }
     }
 })
