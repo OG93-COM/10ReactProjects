@@ -11,6 +11,14 @@ export const productSlice = createSlice({
         addProduct: (state,action) => {
             state.items = action.payload;
         }
+    },
+    extraReducers: {
+        ["cart/createCartItems"]: (state, action) => {
+            const product = state.items.find(el => el.id === action.payload.id);
+            if (product) {
+                product.picked = true;
+            }
+        }
     }
 })
 
