@@ -12,7 +12,7 @@ const ModalContent = ({closeModal}) => {
 
     console.log(cart)
   return (
-    <div onClick={closeModal} className='fixed z-10 top-0 left-0 bg-slate-800/90 w-full h-full flex justify-center items-center'>
+    <div onClick={closeModal} className='fixed z-10 top-0 left-0 bg-slate-800/75 w-full h-full flex justify-center items-center'>
         <div
         onClick={e => e.stopPropagation()}
         className='bg-slate-50 md:min-w-[750px] min-w-[530px] relative p-7 rounded'>
@@ -23,15 +23,15 @@ const ModalContent = ({closeModal}) => {
             </button>
             {cart.cartItems.length <= 0 ? 'No Items' : cart.cartItems.map(obj => (
             <>
-            <div className='flex justify-between items-center'>
+            <div className='flex w-full justify-between items-center mb-2'>
                 <img src={`/images/${obj.img}.png`} className='w-16 rounded shadow-md'/>
-                <p>{obj.title}</p>
-                <p>${obj.price} </p>
+                <p className='mx-2 w-[140px]'>{obj.title}</p>
+                <p className='mx-2 w-[60px] font-semibold text-sm'>${obj.price} </p>
                 <select
                 onChange={e => dispatch(updateItemFromSelect({value:e.target.value, id: obj.id}))}
                 name='quantity'
                 value={obj.quantity}
-                className='px-3 py-1 rounded border-slate-200 border shadow-md'>
+                className='px-3 py-1 mr-1 rounded border-slate-200 border shadow-md w-[60px]'>
                     <option value='1'>1</option>
                     <option value='2'>2</option>
                     <option value='3'>3</option>
@@ -41,7 +41,7 @@ const ModalContent = ({closeModal}) => {
                 </select>
                 <button
                 onClick={() => dispatch(removeItemFromCart(obj.id))}
-                className='bg-slate-700 rounded py-2 px-3 text-slate-100  hover:bg-slate-600'>
+                className='bg-slate-700 rounded  py-2 px-3 mr-1 text-slate-100  hover:bg-slate-600'>
                 Remove From Cart
                 </button>
             </div>
@@ -50,7 +50,7 @@ const ModalContent = ({closeModal}) => {
             ) ) }
             {cart.cartItems.length > 0 && (
                 <>
-            <p className='my-6'>Your Total :
+            <p className='my-6'>Your Total : 
                 <span>
                     {cart.cartItems.reduce((acc,curr) => acc + curr.price * curr.quantity,0).toFixed(2)}$
                 </span>

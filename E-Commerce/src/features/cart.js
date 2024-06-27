@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
             state.cartItems.find(el => el.id === action.payload.id).quantity = Number(action.payload.value)
         },
         removeItemFromCart:(state,action) => {
-            const indexOfRemovedItem = state.cartItems.findIndex(el => el.id === action.payload.id)
+            const indexOfRemovedItem = state.cartItems.findIndex(el => el.id === action.payload)
             state.cartItems.splice(indexOfRemovedItem,1)
         }
     }
