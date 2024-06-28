@@ -23,16 +23,13 @@ export default function usePhotos(query,pageNumber) {
         const url = `https://api.unsplash.com/search/photos?page=${pageNumber}&per_page=30&query=${query}&client_id=${import.meta.env.VITE_UNSPLASH_KEY}`
         axios.get(url)
         .then(res => {
-            console.log(res)
             if (res.status !== 200) {
                 throw new Error("Network response was not ok : " + res.status);
               }
               return res.data
             })
         .then(data => {
-            console.log(data)
             setPhoto(state => [...state,...data.results]);
-            
             setMaxPages(data.total_pages);
             setLoading(false);
             setError({
