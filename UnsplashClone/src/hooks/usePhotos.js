@@ -1,4 +1,4 @@
-import React from 'react'
+import axios from 'axios'
 import { useEffect } from 'react'
 import { useState } from 'react'
 
@@ -20,16 +20,19 @@ export default function usePhotos(query,pageNumber) {
     },[query])
 
     useEffect(()=>{
-        fetch(`https://api.unsplash.com/search/photos?page=${pageNumber}&per_page=30&query=${query}&client_id=${import.meta.env.VITE_UNSPLASH_KEY}`)
+        const url = `https://api.unsplash.com/search/photos?page=${pageNumber}&per_page=30&query=${query}&client_id=${import.meta.env.VITE_UNSPLASH_KEY}`
+        axios.get(url)
         .then(res => {
             console.log(res)
-            if (!res.ok) {
+            if (res.status !== 200) {
                 throw new Error("Network response was not ok : " + res.status);
               }
-              return res.json();
+              return res.data
             })
         .then(data => {
+            console.log(data)
             setPhoto(state => [...state,...data.results]);
+            
             setMaxPages(data.total_pages);
             setLoading(false);
             setError({
