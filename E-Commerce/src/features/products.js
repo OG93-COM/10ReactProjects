@@ -28,7 +28,8 @@ export const productSlice = createSlice({
 // Middelware Function
 export const getProductsList = (action) => {
     return function(dispatch, getState) {
-        fetch('/data/inventory.json')
+        const url = '/data/inventory.json'
+        fetch(url)
         .then(res => {
             if (!res.ok) {
                 throw new Error("Network response was not ok : " + res.status);
@@ -36,6 +37,7 @@ export const getProductsList = (action) => {
               return res.json();
         })
         .then(data => dispatch(addProduct(data.products)))
+        .catch(err => console.log("❌ " + err.message))
     }
 }
 
