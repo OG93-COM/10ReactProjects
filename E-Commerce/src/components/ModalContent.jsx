@@ -21,7 +21,7 @@ const ModalContent = ({closeModal}) => {
             className=' bg-red-500 text-slate-50 text-sm rounded absolute top-0 right-0 z-20 px-3 py-1 m-1 hover:bg-red-600'>
             X
             </button>
-            {cart.cartItems.length <= 0 ? 'No Items' : cart.cartItems.map(obj => (
+            {cart.cartItems.length <= 0 ? 'No Items, Please add Items to Cart' : cart.cartItems.map(obj => (
             <>
             <div className='flex w-full justify-between items-center mb-2'>
                 <img src={`/images/${obj.img}.png`} className='w-16 rounded shadow-md'/>
@@ -55,7 +55,9 @@ const ModalContent = ({closeModal}) => {
                     {cart.cartItems.reduce((acc,curr) => acc + curr.price * curr.quantity,0).toFixed(2)}$
                 </span>
             </p>
-            <button className='bg-slate-700 block mx-auto rounded py-2 px-3 text-sm text-slate-100 hover:bg-slate-600'>Proceed To Checkout</button>
+            <button
+            onClick={() => alert('Done')}
+            className='bg-slate-700 block mx-auto rounded py-2 px-3 text-sm text-slate-100 hover:bg-slate-600'>Proceed To Checkout</button>
             </>
             )}
             </div>
