@@ -6,7 +6,7 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 
 const List = () => {
-  const [query, setQuery] = useState('dog');
+  const [query, setQuery] = useState('Dog');
   const [pageNumber, setPageNumber] = useState(1);
   const photoApiData = usePhotos(query,pageNumber);
   const lastPicRef = useRef()
@@ -45,7 +45,7 @@ const List = () => {
       <input
       ref={searchRef}
       type='text'
-      placeholder='Look for images...'
+      placeholder={`Look for images, Example : ${query}`}
       className='block w-full text-slate-800 py-3 px-2 text-md outline-slate-600 rounded border border-slate-400'/>
     </form>
 
