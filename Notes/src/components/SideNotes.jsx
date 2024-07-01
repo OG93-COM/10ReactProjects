@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import  loader from '../assets/spinner.svg'
+import { Link } from 'react-router-dom'
 
 const SideNotes = () => {
     const noteList = useSelector(state => state.notes)
@@ -10,9 +11,11 @@ const SideNotes = () => {
             <ul className='w-full divide-y divide-slate-300'>
                 {noteList &&
                 noteList.list?.map(note => (
-                    <li key={note.id} className=' hover:bg-slate-100 p-3 hover:scale-[101%] hover:shadow-lg duration-500 cursor-pointer'>
-                    <p className='text-md font-medium md:text-xl md:font-normal'>{note.title}</p>
-                    <p className='text-xs md:text-lg md:font-light text-slate-700'>{note.subtitle}</p>
+                    <li key={note.id} className='hover:bg-slate-100 p-3 hover:scale-[101%] hover:shadow-lg duration-500 cursor-pointer'>
+                    <Link to={`/note/${note.id}`}>
+                        <span className='block text-md font-medium md:text-xl md:font-normal'>{note.title}</span>
+                        <span className='block text-xs md:text-lg md:font-light text-slate-700'>{note.subtitle}</span>
+                    </Link>
                     </li>
                 ))}
             </ul>

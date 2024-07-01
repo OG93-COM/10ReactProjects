@@ -4,6 +4,7 @@ import { getNoteFromApi } from './features/notes'
 import SideBar from "./components/SideBar"
 import SideNotes from "./components/SideNotes"
 import { Routes, Route } from "react-router-dom"
+import ShowNote from './components/ShowNote'
 
 function App() {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ function App() {
     <SideNotes/>
     <Routes>
       <Route path="/" element={<Notes/>} />
-      
+      <Route path="/note/:id" element={<ShowNote />} />
     </Routes>
     
     
