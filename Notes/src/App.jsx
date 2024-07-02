@@ -5,6 +5,7 @@ import SideBar from "./components/SideBar"
 import SideNotes from "./components/SideNotes"
 import { Routes, Route } from "react-router-dom"
 import ShowNote from './components/ShowNote'
+import EditNote from "./components/EditNote"
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Notes/>} />
       <Route path="/note/:id" element={<ShowNote />} />
+      <Route path="/edit/:id" element={<EditNote />} />
     </Routes>
     
     

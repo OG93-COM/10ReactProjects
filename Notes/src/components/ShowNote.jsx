@@ -10,6 +10,10 @@ const ShowNote = () => {
     if(noteList.list) {
         var actualNote = noteList.list?.find(note => note.id === id)
     }
+    const handleDelete = () => {
+
+        navigate('/')
+    }
   return (
     <div className='text-slate-100 p-4 w-full'>
             <Link to={`/`}>
@@ -18,8 +22,15 @@ const ShowNote = () => {
                 Notes
                 </button>
             </Link>
+            <Link to={`/edit/${id}`}>
+
             <button className='px-3 py-1 mb-4 bg-green-600 hover:bg-green-700 duration-200 text-slate-50 rounded'>Edit</button>
-            <button className='px-3 py-1 mb-4 mx-2 bg-red-600 hover:bg-red-700 duration-200 text-slate-50 rounded'>Delete</button>
+            </Link>
+            <button
+            onClick={()=> handleDelete()}
+            className='px-3 py-1 mb-4 mx-2 bg-red-600 hover:bg-red-700 duration-200 text-slate-50 rounded'>
+                Delete
+            </button>
             {actualNote ?   (
                 <article>
                     <p className='text-2xl font-semibold m-2'>{actualNote.title}</p>
