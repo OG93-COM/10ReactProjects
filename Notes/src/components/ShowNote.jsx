@@ -1,17 +1,18 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-
+import { deleteNote } from '../features/notes'
 
 const ShowNote = () => {
     const {id} = useParams()
     const navigate = useNavigate()
     const noteList = useSelector(state => state.notes)
+    const dispatch = useDispatch()
     if(noteList.list) {
         var actualNote = noteList.list?.find(note => note.id === id)
     }
     const handleDelete = () => {
-
-        navigate('/')
+        dispatch(deleteNote(id))
+        // navigate('/')
     }
   return (
     <div className='text-slate-100 p-4 w-full'>

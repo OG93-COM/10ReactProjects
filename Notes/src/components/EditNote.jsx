@@ -1,13 +1,15 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {nanoid} from 'nanoid'
-import {addNoteFromUser} from '../features/notes'
+import {addNoteFromUser , editNoteFromUser} from '../features/notes'
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const EditNote = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
     const noteList = useSelector(state => state.notes)
     const dispatch = useDispatch()
     const [inputState,setInputState] = useState({
@@ -30,8 +32,14 @@ const EditNote = () => {
                 subtitle: noteList.list.find(note => note.id === id).subtitle,
                 bodyText: noteList.list.find(note => note.id === id).bodyText
             })
+        } else {
+            setInputState({
+                title:'',
+                subtitle:'',
+                bodyText: ''
+            })
         }
-    },[noteList,id])
+    },[id])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -41,12 +49,26 @@ const EditNote = () => {
                 subtitle:false,
                 bodyText: false,
             })
-            dispatch(addNoteFromUser({...inputState, id:nanoid(8)}))
-            setInputState({
-                title:'',
-                subtitle:'',
-                bodyText: '',
-        })
+            if(id && noteList.list){
+                dispatch(editNoteFromUser({...inputState, id}))
+                toast(`Your Note ${inputState.title} Updated Successfuly`)
+                setTimeout(()=> {
+                    navigate(`/note/${id}`)
+                },2000)
+            } else {
+                const newId = nanoid(8);
+                dispatch(addNoteFromUser({...inputState, id:newId}))
+                toast(`Your Note ${inputState.title} Added Successfuly`)
+                setInputState({
+                    title:'',
+                    subtitle:'',
+                    bodyText: '',
+                })
+                setTimeout(()=> {
+                    navigate(`/note/${newId}`)
+                },2000)
+            }
+
         } else {
             for(const [key,value] of Object.entries(inputState)){
                 if(value.length === 0){
@@ -100,8 +122,8 @@ const EditNote = () => {
             {id ?
             <button className='p-3 py-2 my-3 bg-slate-300 hover:bg-slate-200 duration-200 text-slate-800 rounded'>Save Changes</button>
             : <button className='p-3 py-2 my-3 bg-slate-300 hover:bg-slate-200 duration-200 text-slate-800 rounded'>Add Note</button>}
-            
         </form>
+        <Toaster />
     </div>
   )
 }
