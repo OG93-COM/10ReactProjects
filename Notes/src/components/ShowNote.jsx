@@ -6,7 +6,6 @@ const ShowNote = () => {
     const {id} = useParams()
     const navigate = useNavigate()
     const noteList = useSelector(state => state.notes)
-    console.log(id)
     if(noteList.list) {
         var actualNote = noteList.list?.find(note => note.id === id)
     }

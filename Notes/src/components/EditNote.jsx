@@ -20,15 +20,18 @@ const EditNote = () => {
         subtitle:false,
         bodyText: false,
     })
-    const actualNote = noteList.list?.find(note => note.id === id)
-    console.log("show " + showValidation.title)
-    console.log("ID" + id)
+ 
+
 
     useEffect(()=> {
-        if(id){
-            setInputState(actualNote)
+        if(id && noteList.list){
+            setInputState({
+                title: noteList.list.find(note => note.id === id).title,
+                subtitle: noteList.list.find(note => note.id === id).subtitle,
+                bodyText: noteList.list.find(note => note.id === id).bodyText
+            })
         }
-    },[id])
+    },[noteList,id])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -51,7 +54,6 @@ const EditNote = () => {
                 } else { setShowValidation(state => ({...state,[key]:false})) }
             }
         }
-        
     }
 
   return (
