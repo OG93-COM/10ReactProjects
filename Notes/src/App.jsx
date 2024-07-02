@@ -23,6 +23,7 @@ function App() {
       <Route path="/" element={<Notes/>} />
       <Route path="/note/:id" element={<ShowNote />} />
       <Route path="/edit/:id" element={<EditNote />} />
+      <Route path="/edit/" element={<EditNote />} />
     </Routes>
     
     

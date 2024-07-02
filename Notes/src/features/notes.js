@@ -11,6 +11,9 @@ export const notesSlice = createSlice({
     reducers:{
         addNotesApi:(state,action) => {
             state.list = action.payload
+        },
+        addNoteFromUser:(state,action) => {
+            state.list.push(action.payload)
         }
     }
 })
@@ -24,5 +27,5 @@ export function getNoteFromApi(action) {
     }
 }
 
-export const {addNotesApi} = notesSlice.actions
+export const {addNotesApi , addNoteFromUser} = notesSlice.actions
 export default notesSlice.reducer
