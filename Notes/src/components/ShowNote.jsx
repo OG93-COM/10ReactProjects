@@ -1,6 +1,7 @@
 import {useDispatch, useSelector} from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { deleteNote } from '../features/notes'
+import toast,{Toaster} from 'react-hot-toast'
 
 const ShowNote = () => {
     const {id} = useParams()
@@ -12,10 +13,14 @@ const ShowNote = () => {
     }
     const handleDelete = () => {
         dispatch(deleteNote(id))
-        // navigate('/')
+        toast("Note Deleted")
+        setTimeout(()=>{
+            navigate('/')
+        },500)
     }
   return (
     <div className='text-slate-100 p-4 w-full'>
+        <Toaster/>
             <Link to={`/`}>
                 <button
                 className='px-3 py-1 mb-4 mx-2 bg-slate-300 hover:bg-slate-200 duration-200 text-slate-800 rounded'>
@@ -37,7 +42,7 @@ const ShowNote = () => {
                     <p className='text-md text-slate-300 mb-2'>{actualNote.subtitle}</p>
                     <p className='text-md text-slate-100 font-thin'>{actualNote.bodyText}</p>
                 </article>
-            ) : <p>No Notes</p>}
+            ) : <p>📝</p>}
     </div>
   )
 }

@@ -54,7 +54,7 @@ const EditNote = () => {
                 toast(`Your Note ${inputState.title} Updated Successfuly`)
                 setTimeout(()=> {
                     navigate(`/note/${id}`)
-                },2000)
+                },50)
             } else {
                 const newId = nanoid(8);
                 dispatch(addNoteFromUser({...inputState, id:newId}))
@@ -66,7 +66,7 @@ const EditNote = () => {
                 })
                 setTimeout(()=> {
                     navigate(`/note/${newId}`)
-                },2000)
+                },50)
             }
 
         } else {
