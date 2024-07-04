@@ -16,7 +16,7 @@ const ShowNote = () => {
         toast("Note Deleted")
         setTimeout(()=>{
             navigate('/')
-        },500)
+        },600)
     }
   return (
     <div className='text-slate-100 p-4 w-full'>
