@@ -11,7 +11,7 @@ const ModalContent = (props) => {
             className=' bg-red-500 text-slate-50 text-sm rounded absolute top-0 right-0 z-20 px-3 py-1 m-1 hover:bg-red-600'>
             X
             </button>
-            <h1 className='text-gray-500 text-xl'>Here is {props.country.name.common} informations</h1>
+            <h1 className='text-gray-500 text-xl'>Here is {props.country.name.common} - {Object.values(props.country.translations.ara.common)}</h1>
             <h2 className='text-gray-800 text-sm mt-2'>
                 <span className='font-semibold'>Language: </span> {Object.entries(props.country.languages).map(lan => lan[1].toUpperCase() + " ")} 
             </h2>
