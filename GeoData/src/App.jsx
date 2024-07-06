@@ -6,23 +6,27 @@ function App() {
   const [countries, setCountries] = useState();
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/subregion/Africa")
-    .then(res => {
-      return res.json();
-    })
-    .then(data => {
-      data.sort((a,b) => {
-        if (a.name.common < b.name.common) {
-          return -1 
-        } else if (a.name.common > b.name.common) {
-          return 1
-        } else {return 0 }
-        
-      })
-      console.log(data)
-      setCountries(data)
-    })
-  },[])
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://restcountries.com/v3.1/subregion/Africa");
+        const data = await res.json();
+        data.sort((a, b) => {
+          if (a.name.common < b.name.common) {
+            return -1;
+          } else if (a.name.common > b.name.common) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+        console.log(data);
+        setCountries(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-800 p-10">
