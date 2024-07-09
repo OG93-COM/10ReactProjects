@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import axios from 'axios'
 
 const initialState = {
     items: undefined
@@ -29,12 +30,13 @@ export const productSlice = createSlice({
 export const getProductsList = (action) => {
     return function(dispatch, getState) {
         const url = '/data/inventory.json'
-        fetch(url)
+        axios.get(url)
         .then(res => {
-            if (!res.ok) {
-                throw new Error("Network response was not ok : " + res.status);
+            console.log(res)
+            if (res.status = 200) {
+                throw new Error("Network response was not ok " + res.status + ' Not Found');
               }
-              return res.json();
+              return res.data;
         })
         .then(data => dispatch(addProduct(data.products)))
         .catch(err => console.log("❌ " + err.message))
