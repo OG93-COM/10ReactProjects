@@ -68,7 +68,6 @@
         font-size: 16px;
     }
     .sliders {
-        
         width: 400px;
         height:280px;
     }
@@ -85,6 +84,6 @@
     }
     .next-button {
         right: -75px;
-    } 
+    }
 }
 
